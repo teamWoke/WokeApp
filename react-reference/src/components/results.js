@@ -5,9 +5,10 @@ import ResultsLog from './resultsLog';
 class Results extends Component{
 	constructor(props) {
 		super(props);
-	})
+	}
 render() {
-	return()
+	return(
+		<div></div>)
 }
 }
 

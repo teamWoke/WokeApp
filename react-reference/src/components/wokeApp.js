@@ -45,7 +45,8 @@ class WokeApp extends Component{
 
 
 render() {
-	return()
+	return(
+		<div></div>)
 }
 
 
