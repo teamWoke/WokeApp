@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Link, Redirect, Switch } from "react-router-dom";
 import LogIn from './logIn';
 import SignUp from './signUp';
 import WokeApp from './wokeApp';
-import Cookies from '../helpers/Cookies';
+import Cookies from '../helpers/cookies';
 import UserAuth from './userAuth';
 import axios from 'axios';
 
@@ -52,7 +52,7 @@ class AuthenticationShell extends Component {
         })
     } else { // if there is no token
       // we should render the auth forms
-      <Redirect to="/auth" />);
+      <Redirect to="/auth" />;
     }
   }
 
@@ -137,4 +137,4 @@ class AuthenticationShell extends Component {
   }
 }
 
-export default App;
+export default AuthenticationShell;
