@@ -4,6 +4,7 @@ import Search from './search';
 import Results from './results';
 import Dashboard from './dashboard';
 import axios from 'axios';
+import "../App.css";
 
 class WokeApp extends Component{
 	constructor(props) {

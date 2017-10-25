@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import "../App.css";
 
 // component for sign up
 // this will render if the mode in user auth is signup
