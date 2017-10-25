@@ -3,8 +3,8 @@ import Login from './logIn';
 import Signup from './signUp';
 
 class UserAuth extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     // set up state
     this.state = {
       mode: 'login' // keeps track of if the user is logging in or signing up
@@ -20,10 +20,12 @@ class UserAuth extends Component {
   }
 
   render(){
+    console.log('userAuth render()')
     return this.state.mode === "login" ? (
       <Login {...this.props} toggleMode={this.toggleMode.bind(this)} />
     ) : (
       <Signup {...this.props} toggleMode={this.toggleMode.bind(this)} />
+      
     )
   }
 }
