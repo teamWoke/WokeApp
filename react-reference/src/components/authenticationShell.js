@@ -97,25 +97,29 @@ class AuthenticationShell extends Component {
     //     <Content logout={this.logout.bind(this)} user={this.state.user} />
     //   )
     // }
+    return (
+
+      <div id="authSwitch">
+
+      <h1> WOKE </h1>
     <Switch>
 					<Route
-						exact
+            exact
 						path="/"
 						render={_ => <Redirect to="/auth" />}
 					/>
 					<Route
-						exact
+            exact
 						path="/auth"
 						render={props => (
-							<UserAuth
-								{...props}
-								setUser={this.setUser}
-								url={this.state.url}
-							/>
-						)}
+              <UserAuth
+                {...props}
+                setUser={this.setUser}
+                url={this.state.url}
+              />
+            )}
 					/>
 					<Route
-						exact
 						path="/woke"
 						render={props => (
 							<WokeApp
@@ -126,6 +130,8 @@ class AuthenticationShell extends Component {
 						)}
 					/>
 				</Switch>
+        </div>
+        )
   }
 
   render() {
