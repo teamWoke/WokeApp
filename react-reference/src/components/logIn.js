@@ -44,7 +44,7 @@ class Login extends Component {
           <p className="WokeSmallText">Woke</p>
         </div>
 
-        <div className="StartContainer Mini">
+        <div className="StartContainerMini">
           <p className="LogInText">Welcome Back!</p>
           <form onSubmit={this.login.bind(this)}>
             <input
