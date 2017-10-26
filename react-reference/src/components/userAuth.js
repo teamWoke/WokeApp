@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Login from './logIn';
 import Signup from './signUp';
+import "../App.css";
 
 class UserAuth extends Component {
   constructor(props){
@@ -25,7 +26,6 @@ class UserAuth extends Component {
       <Login {...this.props} toggleMode={this.toggleMode.bind(this)} />
     ) : (
       <Signup {...this.props} toggleMode={this.toggleMode.bind(this)} />
-      
     )
   }
 }

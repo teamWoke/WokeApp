@@ -6,6 +6,7 @@ import WokeApp from './wokeApp';
 import Cookies from '../helpers/cookies';
 import UserAuth from './userAuth';
 import axios from 'axios';
+import "../App.css";
 
 class AuthenticationShell extends Component {
   constructor(props){
@@ -98,10 +99,6 @@ class AuthenticationShell extends Component {
     //   )
     // }
     return (
-
-      <div id="authSwitch">
-
-      <h1> WOKE </h1>
     <Switch>
 					<Route
             exact
@@ -130,13 +127,12 @@ class AuthenticationShell extends Component {
 						)}
 					/>
 				</Switch>
-        </div>
         )
   }
 
   render() {
     return (
-      <div className="App">
+      <div className="Contents">
         { this.renderView() }
       </div>
     );
