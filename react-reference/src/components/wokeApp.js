@@ -22,11 +22,29 @@ class WokeApp extends Component{
 	}
 	onSubmit(){
 //fires axios call to put search term in database
+    axios({
+      url: `http://localhost:8080/news/`,
+      method: "POST"
+    })
+      .then(response => {
+      	console.log("Added search term: ", response);
+      })
+      .catch(err => {});
 //sent down to Search as props
 //fires callback this.newsSearch()
 	}
 	newsSearch(){
 		//fires axios call to 1. pull search terms from database and 2. call API
+    axios({
+      url: `http://localhost:8080/news/`,
+      method: "GET"
+    })
+      .then(response => {
+      	console.log("Saved search terms: ", response);
+      })
+      .catch(err => {
+      	consoloe.log("Error fetching saved searches: ", err);
+      });
 		//fired this.onSubmit() and this.componentDidMount()
 		//fires this.comparisonView() upon completion of axios call
 	}

@@ -325,18 +325,21 @@ button {
         overflow-y: auto;
     }
 
+    .ResultsLogContainer {
+        margin-bottom: 10px;
+    }
+
     .Tile {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 200px;
         width: 200px;
+        margin-bottom: 15px;
         background-color: #6391c1;
-        border: 1px solid #eef0f3;
     }
 
     .Tile:hover {
-        border: none;
         box-shadow: none;
     }
 
