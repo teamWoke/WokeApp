@@ -6,7 +6,23 @@ import "../App.css";
 class Dashboard extends Component {
 	constructor(props) {
 		super(props);
+
+		this.state = {
+			tileText: ''
+		}
+
+		this.onMouseEnter = this.onMouseEnter.bind(this);
 	}
+
+	componentDidMount() {
+		this.setState({ tileText: "Topic" });
+	}
+
+	onMouseEnter(e) {
+		e.preventDefault();
+		this.setState({ tileText: "Delete" });
+	}
+
 	render() {
 		return (
 			<div className="MainContainer">
@@ -27,7 +43,7 @@ class Dashboard extends Component {
 				</div>
 
 				<div className="TileContainer">
-					<DashboardTile />
+					<DashboardTile onMouseEnter={this.onMouseEnter} tileText={this.state.tileText}/>
 					<DashboardTile />
 					<DashboardTile />
 					<DashboardTile />
