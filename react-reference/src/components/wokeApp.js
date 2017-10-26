@@ -10,11 +10,13 @@ class WokeApp extends Component{
 	constructor(props) {
 		super(props);
 		this.state = {
-			searchTerm: ''
+			searchTerm: '',
+			results: []
 		}
+		this.newsSearch = this.newsSearch.bind(this);
 	}
 	componentDidMount(){
-		//fires this.newsSearch()
+		 this.newsSearch()
 	}
 	onChange(){
 		//updates the search form with each keystroke
@@ -33,7 +35,8 @@ class WokeApp extends Component{
 //sent down to Search as props
 //fires callback this.newsSearch()
 	}
-	newsSearch(){
+	newsSearch(element){
+		const query = element.body.input;
 		//fires axios call to 1. pull search terms from database and 2. call API
     axios({
       url: `http://localhost:8080/news/`,
@@ -41,9 +44,10 @@ class WokeApp extends Component{
     })
       .then(response => {
       	console.log("Saved search terms: ", response);
+      	this.setState({ results: response.data.news })
       })
       .catch(err => {
-      	consoloe.log("Error fetching saved searches: ", err);
+      	console.log("Error fetching saved searches: ", err);
       });
 		//fired this.onSubmit() and this.componentDidMount()
 		//fires this.comparisonView() upon completion of axios call
