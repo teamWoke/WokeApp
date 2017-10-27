@@ -3,8 +3,9 @@ import "../App.css";
 
 class DashboardTile extends Component {
 	render() {
+		console.log("Rendering from DashboardTile", this.props.tileText);
 		return (
-			<div className="Tile" onMouseEnter={this.props.onMouseEnter} onClick={this.props.deleteTerm}>
+			<div className="Tile">
 				<p className="TileText">{this.props.tileText}</p>
 			</div>
 		);
