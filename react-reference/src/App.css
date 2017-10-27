@@ -13,6 +13,13 @@
     text-transform: uppercase;
 }
 
+.WokeNavText {
+    font-size: 45px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 10px;
+}
+
 input {
     border: none;
     font-size: 20px;
@@ -96,6 +103,7 @@ button {
     font-weight: 400;
     font-size: 20px;
     color: #6391c1;
+    padding: 10px;
 }
 
 .CurrentResult {
@@ -134,16 +142,27 @@ button {
     margin: 2%;
 }
 
+.DashboardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    flex: 2;
+}
+
 .InactiveText {
     text-decoration: none;
     font-size: 20px;
     font-weight: 300;
     color: #000000;
+    padding: 10px;
 }
 
 .InactiveText:hover {
     cursor: pointer;
-    border-bottom: 2px solid black;
+    text-transform: uppercase;
+    opacity: .5;
 }
 
 .MainContainer {
@@ -169,24 +188,23 @@ button {
     display: flex;
     flex-direction: row;
     width: 100vw;
-    height: 10vh;
+    flex: .3;
     align-items: center;
     justify-content: center;
 }
 
 .NavBarLeft {
-    width: 80vw;
-    height: 10vh;
+    flex: 1;
     display: flex;
     justify-content: left;
     align-items: center;
 }
 
 .NavBarRight {
+    flex: 1;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    width: 18vw;
 }
 
 .NewsSource,
@@ -267,6 +285,13 @@ button {
     justify-content: center;
 }
 
+.WokeNavText {
+    font-size: 45px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 10px;
+}
+
 #WokeSearchText {
     margin-top: 0;
     margin-bottom: 10px;
@@ -289,6 +314,7 @@ button {
 
     .CurrentLinkText {
         margin: 0;
+        padding: 0;
     }
 
     .CurrentSearchText {
@@ -299,13 +325,17 @@ button {
         font-size: 25px;
     }
 
+    .InactiveText {
+        margin: 0;
+        padding: 0;
+    }
+
     .NavBar {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         width: 100vw;
-        height: 20vh;
         flex: 0.3;
     }
 

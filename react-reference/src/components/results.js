@@ -9,7 +9,7 @@ class Results extends Component {
 			<div className="MainContainer">
 				<div className="NavBar">
 					<div className="NavBarLeft">
-						<p className="WokeSmallText">Woke</p>
+						<p className="WokeNavText">Woke</p>
 					</div>
 					<div className="NavBarRight">
 						<p className="CurrentLinkText">Search</p>
