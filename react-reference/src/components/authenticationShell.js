@@ -123,6 +123,7 @@ class AuthenticationShell extends Component {
       .post("http://localhost:8080/news/", { search_term: searchTerm })
       .then(response => {
         console.log("Added search term: ", response.data);
+        this.newsSearch();
         this.props.history.push(`/woke/results`);
       })
       .catch(err => {
@@ -132,20 +133,20 @@ class AuthenticationShell extends Component {
     // calls this.newsSearch()
   }
 
-  // newsSearch() {
-  //   axios
-  //     .get("http://localhost:8080/news/")
-  //     .then(response => {
-  //       this.setState({ results: response.data });
-  //       console.log("Received news data: ", response.data);
-  //       this.props.history.push(`/woke/results`);
-  //     })
-  //     .catch(err => {
-  //       console.log("Error receiving news data: ", err);
-  //     });
-  //   // pulls news from API call
-  //   // redirect to <Results/>
-  // }
+  newsSearch() {
+    axios
+      .get("http://localhost:8080/news/")
+      .then(response => {
+        this.setState({ results: response.data });
+        console.log("Received news data: ", response.data);
+        this.props.history.push(`/woke/results`);
+      })
+      .catch(err => {
+        console.log("Error receiving news data: ", err);
+      });
+    // pulls news from API call
+    // redirect to <Results/>
+  }
 
   viewTerms() {}
 
