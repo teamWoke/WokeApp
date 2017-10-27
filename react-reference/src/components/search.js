@@ -20,10 +20,12 @@ class Search extends Component {
 
 				<div className="MiniContainer">
 					<p id="WokeSearchText">Woke</p>
-					<input type="text" placeholder="Search a topic" id="SearchBar" />
+					<form onSubmit={this.props.onSubmit}>
+					<input type="text" placeholder="Search a topic" id="SearchBar" onChange={this.props.onChange} />
 					<br />
 					<br />
 					<button>Search</button>
+					</form>
 				</div>
 			</div>
 		);
