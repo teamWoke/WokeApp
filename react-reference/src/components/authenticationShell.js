@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Link, Redirect, Switch } from "react-router-dom";
-import LogIn from "./logIn";
-import SignUp from "./signUp";
+import { Route, Redirect, Switch } from "react-router-dom";
 import Search from "./search";
 import Results from "./results";
 import Dashboard from "./dashboard";
@@ -91,12 +89,10 @@ class AuthenticationShell extends Component {
     event.preventDefault();
     this.setState({ searchTerm: event.target.value });
     console.log("The current input is ", this.state.searchTerm);
-    //updates the search form with each keystroke
-    //passed down to Search as props
+    //updates searchTerm with each keystroke
   }
 
   onSubmit(event) {
-    //fires axios call to put search term in database
     event.preventDefault();
     const { searchTerm } = this.state;
     axios
@@ -108,8 +104,8 @@ class AuthenticationShell extends Component {
       .catch(err => {
         console.log("Error adding search term: ", err);
       });
-    //sent down to Search as props
-    //fires callback this.newsSearch()
+      // posts searchTerm to the db
+      // calls this.newsSearch()
   }
 
   newsSearch() {
@@ -122,29 +118,23 @@ class AuthenticationShell extends Component {
       .catch(err => {
         console.log("Error receiving news data: ", err);
       });
+      // pulls news from API call
+      // redirect to <Results/>
+  }
+
+  viewTerms() {
+    axios.get("http://localhost:8080/news/")
+    .then (response => {
+      console.log("Terms on dashboard view: ", response.data)
+    })
+    .catch(err => {
+      console.log("Error receiving all terms: ", err);
+    })
+    //renders all of the searchTerms in db to <Dashboard/>
   }
 
   // method that renders the view based on the mode in the state
   renderView() {
-    // if(this.state.mode === 'loading'){
-    //   return(
-    //     <div className="loading">
-    //       <img src="https://s-media-cache-ak0.pinimg.com/originals/8b/a8/ce/8ba8ce24910d7b2f4c147359a82d50ef.gif"
-    //         alt="loading" />
-    //     </div>
-    //   )
-    // } else if(this.state.mode === 'auth') {
-    //   return (
-    //     <UserAuth
-    //       setUser={this.setUser.bind(this)}
-    //       url={this.state.url}
-    //     />
-    //   )
-    // } else if(this.state.mode === 'content') {
-    //   return (
-    //     <Content logout={this.logout.bind(this)} user={this.state.user} />
-    //   )
-    // }
     return (
       <Switch>
         <Route exact path="/" render={_ => <Redirect to="/auth" />} />
@@ -164,7 +154,7 @@ class AuthenticationShell extends Component {
         <Route
           path="/woke/dashboard"
           render={props => (
-            <Dashboard {...props} logout={this.logout} user={this.state.user} />
+            <Dashboard {...props} logout={this.logout} user={this.state.user} name={this.state.user.name}/>
           )}
         />
         <Route

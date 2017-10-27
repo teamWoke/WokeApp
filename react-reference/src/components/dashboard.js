@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Link, Redirect, Switch } from "react-router-dom";
+import { Link } from "react-router-dom";
 import DashboardTile from "./dashboardTile";
 import "../App.css";
 
@@ -38,7 +38,7 @@ class Dashboard extends Component {
 				</div>
 
 				<div className="Username">
-					<p className="LogInText">Hey Person,</p>
+					<p className="LogInText">Hey {this.props.name},</p>
 					<p className="WokeSearchText">Here are your woke words.</p>
 				</div>
 
