@@ -100,7 +100,6 @@ class AuthenticationShell extends Component {
       .then(response => {
         console.log("Added search term: ", response.data);
         this.newsSearch();
-        this.props.history.push(`/woke/results`);
       })
       .catch(err => {
         console.log("Error adding search term: ", err);
@@ -113,8 +112,8 @@ class AuthenticationShell extends Component {
     axios
       .get("http://localhost:8080/news/")
       .then(response => {
-        this.setState({ results: response.data }, ()=>{
-        console.log("Received news data: ", response.data);
+        this.setState({ results: response.data.news }, () => {
+        console.log("Received news data: ", this.state.results);
         this.props.history.push(`/woke/results`);
       })
       })
