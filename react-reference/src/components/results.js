@@ -16,15 +16,15 @@ class Results extends Component {
 					</div>
 					<div className="NavBarRight">
 						<p className="CurrentLinkText">Search</p>
-						<a href="#">Dashboard</a>
-						<a href="#">Logout</a>
+						<Link to="/woke/dashboard" className="InactiveText">Dashboard</Link>
+						<p className="InactiveText" onClick={this.props.logout}>Logout</p>
 					</div>
 				</div>
 
 				<div className="MiniContainer">
 					<div className="CurrentSearchHeader">
 						<p className="CurrentSearchText">Relevancy of</p>
-						<p className="CurrentSearchMainText">"SEARCH TERM"</p>
+						<p className="CurrentSearchMainText">"{this.props.searchTerm}"</p>
 						<p className="CurrentSearchText">in the past 30 days</p>
 					</div>
 

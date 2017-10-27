@@ -13,8 +13,8 @@ class Search extends Component {
 					<div className="NavBarLeft" />
 					<div className="NavBarRight">
 						<p className="CurrentLinkText">Search</p>
-						<Link to="/woke/" className="InactiveText">Dashboard</Link>
-						<Link to="/auth" className="InactiveText">Logout</Link>
+						<Link to="/woke/dashboard" className="InactiveText">Dashboard</Link>
+						<p className="InactiveText" onClick={this.props.logout}>Logout</p>
 					</div>
 				</div>
 
