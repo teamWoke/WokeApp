@@ -23,14 +23,14 @@ class Results extends Component {
 				<div className="MiniContainer">
 					<div className="CurrentSearchHeader">
 						<p className="CurrentSearchText">Relevancy of</p>
-						<p className="CurrentSearchMainText">"{this.props.results[0].term}"</p>
-						<p className="CurrentSearchText">in the past 30 days</p>
+						<p className="CurrentSearchMainText">"{this.props.searchTerm}"</p>
+						<p className="CurrentSearchText">in the past 3 days</p>
 					</div>
 
 					<div className="ResultsContainer">
-						<FoxLog eachResult={this.props.results}/>
-						<CnnLog eachResult={this.props.results}/>
 						<BbcLog eachResult={this.props.results}/>
+						<CnnLog eachResult={this.props.results}/>
+						<FoxLog eachResult={this.props.results}/>
 					</div>
 				</div>
 			</div>
