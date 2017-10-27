@@ -31,9 +31,9 @@ class Dashboard extends Component {
 						<p className="WokeSmallText">Woke</p>
 					</div>
 					<div className="NavBarRight">
-						<p className="InactiveText"><Link to="/woke/">Search</Link></p>
+						<Link to="/woke/" className="InactiveText">Search</Link>
 						<p className="CurrentLinkText">Dashboard</p>
-						<p className="InactiveText"><Link to="/auth">Logout</Link></p>
+						<p className="InactiveText" onClick={this.props.logout}>Logout</p>
 					</div>
 				</div>
 
