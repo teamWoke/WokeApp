@@ -102,7 +102,7 @@ class AuthenticationShell extends Component {
     axios
       .post("http://localhost:8080/news/", { search_term: searchTerm })
       .then(response => {
-        console.log("Added search term: ", response);
+        console.log("Added search term: ", response.data);
         this.newsSearch();
       })
       .catch(err => {
@@ -110,6 +110,18 @@ class AuthenticationShell extends Component {
       });
     //sent down to Search as props
     //fires callback this.newsSearch()
+  }
+
+  newsSearch() {
+    axios
+      .get("http://localhost:8080/news/")
+      .then(response => {
+        console.log("Received news data: ", response.data.news);
+        this.props.history.push(`/woke/results`);
+      })
+      .catch(err => {
+        console.log("Error receiving news data: ", err);
+      });
   }
 
   // method that renders the view based on the mode in the state
@@ -144,6 +156,18 @@ class AuthenticationShell extends Component {
           )}
         />
         <Route
+          path="/woke/results"
+          render={props => (
+            <Results {...props} logout={this.logout} searchTerm={this.state.searchTerm} user={this.state.user} />
+          )}
+        />
+        <Route
+          path="/woke/dashboard"
+          render={props => (
+            <Dashboard {...props} logout={this.logout} user={this.state.user} />
+          )}
+        />
+        <Route
           path="/woke"
           render={props => (
             <Search
@@ -153,22 +177,6 @@ class AuthenticationShell extends Component {
               onChange={this.onChange}
               onSubmit={this.onSubmit}
             />
-          )}
-        />
-        <Route
-          path="/woke/results"
-          render={props => (
-            <Results {...props} 
-            logout={this.logout} 
-            user={this.state.user} />
-          )}
-        />
-        <Route 
-        path="/woke/dashboard" 
-        render={props => (
-          <Dashboard {...props}
-          logout={this.logout}
-          user={this.state.user} />
           )}
         />
       </Switch>
