@@ -21,7 +21,7 @@ class UserAuth extends Component {
   }
 
   render(){
-    console.log('userAuth render()')
+    console.log('Login page rendering!');
     return this.state.mode === "login" ? (
       <Login {...this.props} toggleMode={this.toggleMode.bind(this)} />
     ) : (
