@@ -13,17 +13,19 @@ class Search extends Component {
 					<div className="NavBarLeft" />
 					<div className="NavBarRight">
 						<p className="CurrentLinkText">Search</p>
-						<a href="#">Dashboard</a>
-						<a href="#">Logout</a>
+						<Link to="/woke/" className="InactiveText">Dashboard</Link>
+						<Link to="/auth" className="InactiveText">Logout</Link>
 					</div>
 				</div>
 
 				<div className="MiniContainer">
 					<p id="WokeSearchText">Woke</p>
-					<input type="text" placeholder="Search a topic" id="SearchBar" />
+					<form onSubmit={this.props.onSubmit}>
+					<input type="text" placeholder="Search a topic" id="SearchBar" onChange={this.props.onChange} />
 					<br />
 					<br />
 					<button>Search</button>
+					</form>
 				</div>
 			</div>
 		);
