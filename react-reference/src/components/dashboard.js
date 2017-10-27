@@ -28,7 +28,7 @@ class Dashboard extends Component {
 			<div className="MainContainer">
 				<div className="NavBar">
 					<div className="NavBarLeft">
-						<p className="WokeSmallText">Woke</p>
+						<p className="WokeNavText">Woke</p>
 					</div>
 					<div className="NavBarRight">
 						<Link to="/woke/" className="InactiveText">Search</Link>
@@ -37,6 +37,7 @@ class Dashboard extends Component {
 					</div>
 				</div>
 
+				<div className="DashboardContainer">
 				<div className="Username">
 					<p className="LogInText">Hey {this.props.name},</p>
 					<p className="WokeSearchText">Here are your woke words.</p>
@@ -49,6 +50,7 @@ class Dashboard extends Component {
 					<DashboardTile />
 					<DashboardTile />
 					<DashboardTile />
+				</div>
 				</div>
 			</div>
 		);
