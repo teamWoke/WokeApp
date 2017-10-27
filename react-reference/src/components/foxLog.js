@@ -10,7 +10,7 @@ class FoxLog extends Component {
 				</div>
 
 				<div className="CurrentResult">
-					<p className="CurrentResultText">{this.props.eachResult[0].term}: {this.props.eachResult[0].fox}</p>
+					<p className="ResultText">{this.props.eachResult[0].term}: {this.props.eachResult[0].fox}</p>
 				</div>
 
 				<div className="PrevResult">

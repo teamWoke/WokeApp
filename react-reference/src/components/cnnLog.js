@@ -6,11 +6,11 @@ class CnnLog extends Component {
 		return (
 			<div className="ResultsLogContainer">
 				<div className="NewsSource">
-					<p>CNN</p>
+					<p className="NewsSourceText">CNN</p>
 				</div>
 
 				<div className="CurrentResult">
-					<p className="CurrentResultText">{this.props.eachResult[0].term}: {this.props.eachResult[0].cnn}</p>
+					<p className="ResultText">{this.props.eachResult[0].term}: {this.props.eachResult[0].cnn}</p>
 				</div>
 
 				<div className="PrevResult">

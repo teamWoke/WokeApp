@@ -6,11 +6,11 @@ class BbcLog extends Component {
 		return (
 			<div className="ResultsLogContainer">
 				<div className="NewsSource">
-					<p>BBC</p>
+					<p className="NewsSourceText">BBC</p>
 				</div>
 
 				<div className="CurrentResult">
-					<p className="CurrentResultText">{this.props.eachResult[0].term}: {this.props.eachResult[0].bbc}</p>
+					<p className="ResultText">{this.props.eachResult[0].term}: {this.props.eachResult[0].bbc}</p>
 				</div>
 
 				<div className="PrevResult">
