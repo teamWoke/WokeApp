@@ -6,24 +6,23 @@ import "../App.css";
 class Dashboard extends Component {
 	constructor(props) {
 		super(props);
-
-		this.state = {
-			tileText: ''
+		this.showSearchTerm = this.showSearchTerm.bind(this);
+		this.deleteTile = this.deleteTile.bind(this);
 		}
 
-		this.onMouseEnter = this.onMouseEnter.bind(this);
+	showSearchTerm(term, index){
+		console.log("in showSearchTerm", term);
+		return (
+			<DashboardTile key={index.toString()} tileText={term.term}/>
+			)
 	}
 
-	componentDidMount() {
-		this.setState({ tileText: "Topic" });
-	}
+	deleteTile(){
 
-	onMouseEnter(e) {
-		e.preventDefault();
-		this.setState({ tileText: "Delete" });
 	}
 
 	render() {
+		const tilesSearchTerms = this.props.results.map(this.showSearchTerm);
 		return (
 			<div className="MainContainer">
 				<div className="NavBar">
@@ -43,14 +42,7 @@ class Dashboard extends Component {
 					<p className="WokeSearchText">Here are your woke words.</p>
 				</div>
 
-				<div className="TileContainer">
-					<DashboardTile onMouseEnter={this.onMouseEnter} tileText={this.state.tileText}/>
-					<DashboardTile />
-					<DashboardTile />
-					<DashboardTile />
-					<DashboardTile />
-					<DashboardTile />
-				</div>
+					<div className="TileContainer">{tilesSearchTerms}</div>
 				</div>
 			</div>
 		);

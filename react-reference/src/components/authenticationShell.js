@@ -155,6 +155,7 @@ class AuthenticationShell extends Component {
           render={props => (
             <Dashboard
               {...props}
+              results={this.state.results}
               logout={this.logout}
               user={this.state.user}
               name={this.state.user.name}
