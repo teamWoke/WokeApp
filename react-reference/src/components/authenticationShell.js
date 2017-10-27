@@ -16,7 +16,31 @@ class AuthenticationShell extends Component {
       user: false,
       url: "http://localhost:8080",
       searchTerm: "",
-      results: []
+      results: [
+        {
+          term: "donald trump",
+          cnn: 252,
+          fox: 342,
+          bbc: 87
+        },
+        {
+          term: "climate",
+          cnn: 25,
+          fox: 1,
+          bbc: 12
+        },
+        {
+          term: "opioid",
+          cnn: 51,
+          fox: 32,
+          bbc: 8
+        },
+        {term: "prosthetics",
+        cnn: 21,
+        fox: 45,
+        bbc: 10023
+      }
+      ]
     };
     this.setUser = this.setUser.bind(this);
     this.logout = this.logout.bind(this);
@@ -99,39 +123,31 @@ class AuthenticationShell extends Component {
       .post("http://localhost:8080/news/", { search_term: searchTerm })
       .then(response => {
         console.log("Added search term: ", response.data);
-        this.newsSearch();
+        this.props.history.push(`/woke/results`);
       })
       .catch(err => {
         console.log("Error adding search term: ", err);
       });
-      // posts searchTerm to the db
-      // calls this.newsSearch()
+    // posts searchTerm to the db
+    // calls this.newsSearch()
   }
 
-  newsSearch() {
-    axios
-      .get("http://localhost:8080/news/")
-      .then(response => {
-        console.log("Received news data: ", response.data.news);
-        this.props.history.push(`/woke/results`);
-      })
-      .catch(err => {
-        console.log("Error receiving news data: ", err);
-      });
-      // pulls news from API call
-      // redirect to <Results/>
-  }
+  // newsSearch() {
+  //   axios
+  //     .get("http://localhost:8080/news/")
+  //     .then(response => {
+  //       this.setState({ results: response.data });
+  //       console.log("Received news data: ", response.data);
+  //       this.props.history.push(`/woke/results`);
+  //     })
+  //     .catch(err => {
+  //       console.log("Error receiving news data: ", err);
+  //     });
+  //   // pulls news from API call
+  //   // redirect to <Results/>
+  // }
 
-  viewTerms() {
-    axios.get("http://localhost:8080/news/")
-    .then (response => {
-      console.log("Terms on dashboard view: ", response.data)
-    })
-    .catch(err => {
-      console.log("Error receiving all terms: ", err);
-    })
-    //renders all of the searchTerms in db to <Dashboard/>
-  }
+  viewTerms() {}
 
   // method that renders the view based on the mode in the state
   renderView() {
@@ -148,13 +164,24 @@ class AuthenticationShell extends Component {
         <Route
           path="/woke/results"
           render={props => (
-            <Results {...props} logout={this.logout} searchTerm={this.state.searchTerm} user={this.state.user} />
+            <Results
+              {...props}
+              results={this.state.results}
+              logout={this.logout}
+              searchTerm={this.state.searchTerm}
+              user={this.state.user}
+            />
           )}
         />
         <Route
           path="/woke/dashboard"
           render={props => (
-            <Dashboard {...props} logout={this.logout} user={this.state.user} name={this.state.user.name}/>
+            <Dashboard
+              {...props}
+              logout={this.logout}
+              user={this.state.user}
+              name={this.state.user.name}
+            />
           )}
         />
         <Route

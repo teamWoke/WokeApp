@@ -207,25 +207,32 @@ button {
     align-items: center;
 }
 
-.NewsSource,
-.CurrentResult,
-.PrevResult {
+.NewsSourceText {
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: 300px;
+    color: #4a4a4a;
+}
+
+.NewsSource, .CurrentResult, .PrevResult {
     width: 245px;
     height: 61px;
     display: flex;
-    font-size: 30px;
-    font-weight: 400px;
-    color: #4a4a4a;
     align-items: center;
     justify-content: center;
 }
 
 .PrevResult {
     background-color: #e29081;
+    border-top: 1px solid #eef0f3;
+    text-align: left;
+}
+
+.PrevResultText, .CurrentResultText {
     color: #eef0f3;
     font-weight: 300;
     font-size: 20px;
-    border-top: 1px solid #eef0f3;
+    text-transform: capitalize;
 }
 
 .ResultsContainer {

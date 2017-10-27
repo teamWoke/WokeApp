@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import ResultsLog from "./resultsLog";
+import FoxLog from './foxLog';
+import CnnLog from "./cnnLog";
+import BbcLog from './bbcLog';
 import "../App.css";
 
 class Results extends Component {
@@ -21,14 +23,14 @@ class Results extends Component {
 				<div className="MiniContainer">
 					<div className="CurrentSearchHeader">
 						<p className="CurrentSearchText">Relevancy of</p>
-						<p className="CurrentSearchMainText">"{this.props.searchTerm}"</p>
+						<p className="CurrentSearchMainText">"{this.props.results[0].term}"</p>
 						<p className="CurrentSearchText">in the past 30 days</p>
 					</div>
 
 					<div className="ResultsContainer">
-						<ResultsLog />
-						<ResultsLog />
-						<ResultsLog />
+						<FoxLog eachResult={this.props.results}/>
+						<CnnLog eachResult={this.props.results}/>
+						<BbcLog eachResult={this.props.results}/>
 					</div>
 				</div>
 			</div>
