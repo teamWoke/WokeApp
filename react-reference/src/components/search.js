@@ -13,8 +13,8 @@ class Search extends Component {
 					<div className="NavBarLeft" />
 					<div className="NavBarRight">
 						<p className="CurrentLinkText">Search</p>
-						<a href="#">Dashboard</a>
-						<a href="#">Logout</a>
+						<Link to="/woke/" className="InactiveText">Dashboard</Link>
+						<Link to="/auth" className="InactiveText">Logout</Link>
 					</div>
 				</div>
 

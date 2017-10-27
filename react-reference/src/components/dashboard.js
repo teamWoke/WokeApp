@@ -31,9 +31,9 @@ class Dashboard extends Component {
 						<p className="WokeSmallText">Woke</p>
 					</div>
 					<div className="NavBarRight">
-						<a href="#">Search</a>
+						<p className="InactiveText"><Link to="/woke/">Search</Link></p>
 						<p className="CurrentLinkText">Dashboard</p>
-						<a href="#">Logout</a>
+						<p className="InactiveText"><Link to="/auth">Logout</Link></p>
 					</div>
 				</div>
 
