@@ -16,31 +16,7 @@ class AuthenticationShell extends Component {
       user: false,
       url: "http://localhost:8080",
       searchTerm: "",
-      results: [
-        {
-          term: "donald trump",
-          cnn: 252,
-          fox: 342,
-          bbc: 87
-        },
-        {
-          term: "climate",
-          cnn: 25,
-          fox: 1,
-          bbc: 12
-        },
-        {
-          term: "opioid",
-          cnn: 51,
-          fox: 32,
-          bbc: 8
-        },
-        {term: "prosthetics",
-        cnn: 21,
-        fox: 45,
-        bbc: 10023
-      }
-      ]
+      results: []
     };
     this.setUser = this.setUser.bind(this);
     this.logout = this.logout.bind(this);
@@ -137,9 +113,10 @@ class AuthenticationShell extends Component {
     axios
       .get("http://localhost:8080/news/")
       .then(response => {
-        this.setState({ results: response.data });
+        this.setState({ results: response.data }, ()=>{
         console.log("Received news data: ", response.data);
         this.props.history.push(`/woke/results`);
+      })
       })
       .catch(err => {
         console.log("Error receiving news data: ", err);
