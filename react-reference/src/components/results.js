@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import FoxLog from './foxLog';
 import CnnLog from "./cnnLog";
 import BbcLog from './bbcLog';
+import GraphResults from './graphResults';
 import "../App.css";
 
 class Results extends Component {
@@ -27,11 +28,7 @@ class Results extends Component {
 						<p className="CurrentSearchText">in the past 3 days</p>
 					</div>
 
-					<div className="ResultsContainer">
-						<BbcLog eachResult={this.props.results}/>
-						<CnnLog eachResult={this.props.results}/>
-						<FoxLog eachResult={this.props.results}/>
-					</div>
+						<GraphResults eachResult={this.props.results}/>
 				</div>
 			</div>
 		);
