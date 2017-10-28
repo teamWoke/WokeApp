@@ -7,6 +7,7 @@ import Cookies from "../helpers/cookies";
 import UserAuth from "./userAuth";
 import axios from "axios";
 import "../App.css";
+import DashboardTile from "./dashboardTile"
 
 class AuthenticationShell extends Component {
   constructor(props) {
@@ -23,6 +24,8 @@ class AuthenticationShell extends Component {
     this.renderView = this.renderView.bind(this);
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.deleteTile = this.deleteTile.bind(this);
+    this.showSearchTerm = this.showSearchTerm.bind(this);
   }
 
   // once the component mounted, we want to initialize our user
@@ -126,6 +129,25 @@ class AuthenticationShell extends Component {
 
   viewTerms() {}
 
+  showSearchTerm(term, index) {
+    console.log("in showSearchTerm", term);
+    return <DashboardTile key={term.id.toString()} id={term.id} tileText={term.term} onClick={this.deleteTile}/>;
+  }
+
+  deleteTile(event, id) {
+    console.log("Inside deleteTile!");
+    event.preventDefault();
+    // const id = event.target.id;
+    axios.delete(`http://localhost:8080/news/${id}`)
+    .then(response => {
+      console.log('Deleting a tile', id);
+      this.showSearchTerm();
+    })
+    .catch(err => {
+      console.log("Error deleting tile: ", err);
+    })
+  }
+
   // method that renders the view based on the mode in the state
   renderView() {
     return (
@@ -159,6 +181,7 @@ class AuthenticationShell extends Component {
               logout={this.logout}
               user={this.state.user}
               name={this.state.user.name}
+              delete={this.deleteTile}
             />
           )}
         />

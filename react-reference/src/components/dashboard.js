@@ -13,7 +13,9 @@ class Dashboard extends Component {
 		};
 
 		this.showSearchTerm = this.showSearchTerm.bind(this);
-		this.deleteTile = this.deleteTile.bind(this);
+		// this.deleteTile = this.deleteTile.bind(this);
+				this.delete = this.delete.bind(this);
+
 	}
 
 	componentDidMount() {
@@ -34,22 +36,32 @@ class Dashboard extends Component {
 		return <DashboardTile key={term.id.toString()} id={term.id} tileText={term.term} onClick={this.deleteTile}/>;
 	}
 
-	deleteTile(event) {
+	// deleteTile(event) {
+	// 	console.log("Inside deleteTile!");
+	// 	event.preventDefault();
+	// 	const id = this.state.termsArray.id;
+	// 	axios.delete(`http://localhost:8080/news/${id}`)
+	// 	.then(response => {
+	// 		console.log('Deleting a tile', id);
+	// 		this.showSearchTerm();
+	// 	})
+	// 	.catch(err => {
+	// 		console.log("Error deleting tile: ", err);
+	// 	})
+	// }
+delete(event, id) {
 		console.log("Inside deleteTile!");
 		event.preventDefault();
-		const id = event.target.id;
-		axios.delete(`http://localhost:8080/news/${id}`)
-		.then(response => {
-			console.log('Deleting a tile', id);
-			this.showSearchTerm();
-		})
-		.catch(err => {
-			console.log("Error deleting tile: ", err);
-		})
+		// const id = this.state.termsArray.id;
+		this.props.deleteTile;
 	}
 
 	render() {
 		const tilesSearchTerms = this.state.termsArray.map(this.showSearchTerm);
+		const id = this.state.termsArray.id;
+		const onClick = event => {
+			this.delete(event, id);
+		}
 		return (
 			<div className="MainContainer">
 				<div className="NavBar">
@@ -73,7 +85,7 @@ class Dashboard extends Component {
 						<p className="WokeSearchText">Here are your woke words.</p>
 					</div>
 
-					<div className="TileContainer">{tilesSearchTerms}</div>
+					<div className="TileContainer" onClick={onClick}>{tilesSearchTerms}</div>
 				</div>
 			</div>
 		);
