@@ -315,6 +315,29 @@ button {
     text-transform: uppercase;
 }
 
+
+/* Semiotic */
+
+.annotation-layer {
+    display: none;
+}
+
+.frame-elements, .frame-canvas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.visualization-layer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+text {
+    text-transform: capitalize;
+}
+
 @media only screen and (min-width: 768px) {}
 
 @media only screen and (max-width: 500px) {

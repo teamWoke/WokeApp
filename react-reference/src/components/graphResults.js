@@ -60,7 +60,7 @@ class GraphResults extends Component {
         return(
             <div key={Math.random()}>
             <ORFrame
-                size={[200,300]}
+                size={[170,300]}
                 data={data}
                 projection={"vertical"}
                 type={"bar"}
@@ -71,7 +71,6 @@ class GraphResults extends Component {
                     return { fill: d.funnelKey };
                 }}
                 hoverAnnotation={false}
-                margin={{ left: 50, top: 10, bottom: 50, right: 0 }}
             />
             </div>
             );
