@@ -261,10 +261,12 @@ button {
 
 .Tile {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     height: 250px;
     width: 250px;
+    margin-bottom: 3%;
     background-color: #6391c1;
 }
 
@@ -286,7 +288,8 @@ button {
 
 .TileText {
     color: #eef0f3;
-    font-size: 36px;
+    font-size: 30px;
+    text-transform: uppercase;
 }
 
 .Username {
@@ -383,7 +386,6 @@ button {
         align-items: center;
         height: 200px;
         width: 200px;
-        margin-bottom: 15px;
         background-color: #6391c1;
     }
 
@@ -395,7 +397,7 @@ button {
         display: flex;
         justify-content: space-around;
         align-items: space-between;
-        width: 100vw;
+        width: 90vw;
         overflow-y: auto;
     }
 
