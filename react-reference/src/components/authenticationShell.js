@@ -18,6 +18,7 @@ class AuthenticationShell extends Component {
       url: "http://localhost:8080",
       searchTerm: "",
       results: [],
+      remapResults: [],
       loading: false
     };
     this.setUser = this.setUser.bind(this);
@@ -26,6 +27,7 @@ class AuthenticationShell extends Component {
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.deleteTile = this.deleteTile.bind(this);
+    this.remapData = this.remapData.bind(this);
   }
 
   // once the component mounted, we want to initialize our user
@@ -95,6 +97,21 @@ class AuthenticationShell extends Component {
     //updates searchTerm with each keystroke
   }
 
+  remapData(resultsArray) {
+    let remap = [{network: 'cnn'}, {network: 'fox'}, {network: 'bbc'}]
+
+    resultsArray.forEach(element => {
+    let key = element.term.replace(' ', '');
+    remap[0][key] = element.cnn;
+    remap[1][key] = element.fox;
+    remap[2][key] = element.bbc;
+    })
+    console.log("in remapData", remap);
+    this.setState({remapResults: remap}, ()=>{
+      console.log(this.state.remapResults)
+    })
+  }
+
   onSubmit(event) {
     event.preventDefault();
     const { searchTerm } = this.state;
@@ -118,6 +135,7 @@ class AuthenticationShell extends Component {
       .then(response => {
         this.setState({ results: response.data.news, loading: false }, () => {
         console.log("Received news data: ", this.state.results);
+        this.remapData(this.state.results);
         this.props.history.push(`/woke/results`);
       })
       })
@@ -159,6 +177,7 @@ class AuthenticationShell extends Component {
           render={props => (
             <Results
               {...props}
+              remap={this.state.remapResults}
               results={this.state.results}
               logout={this.logout}
               searchTerm={this.state.searchTerm}
