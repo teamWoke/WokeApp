@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import ReactLoading from 'react-loading';
 import "../App.css";
 
 class Search extends Component {
@@ -17,7 +18,13 @@ class Search extends Component {
 					</div>
 				</div>
 
-				<div className="MiniContainer">
+					{this.props.loading === true && (
+						<div className="MiniContainer">
+						<ReactLoading type="spokes" color="#6391c1" width="200px" height="200px"/>
+						</div>
+						)}
+					{this.props.loading === false && (
+					<div className="MiniContainer">
 					<p id="WokeSearchText">Search</p>
 					<form onSubmit={this.props.onSubmit}>
 					<input type="text" placeholder="Search a topic" id="SearchBar" onChange={this.props.onChange} />
@@ -26,6 +33,7 @@ class Search extends Component {
 					<button>Search</button>
 					</form>
 				</div>
+				)}
 			</div>
 		);
 	}

@@ -17,7 +17,8 @@ class AuthenticationShell extends Component {
       user: false,
       url: "http://localhost:8080",
       searchTerm: "",
-      results: []
+      results: [],
+      loading: false
     };
     this.setUser = this.setUser.bind(this);
     this.logout = this.logout.bind(this);
@@ -97,6 +98,7 @@ class AuthenticationShell extends Component {
   onSubmit(event) {
     event.preventDefault();
     const { searchTerm } = this.state;
+    this.setState({ loading: true });
     axios
       .post("http://localhost:8080/news/", { search_term: searchTerm })
       .then(response => {
@@ -114,7 +116,7 @@ class AuthenticationShell extends Component {
     axios
       .get("http://localhost:8080/news/")
       .then(response => {
-        this.setState({ results: response.data.news }, () => {
+        this.setState({ results: response.data.news, loading: false }, () => {
         console.log("Received news data: ", this.state.results);
         this.props.history.push(`/woke/results`);
       })
@@ -182,6 +184,7 @@ class AuthenticationShell extends Component {
           render={props => (
             <Search
               {...props}
+              loading={this.state.loading}
               logout={this.logout}
               user={this.state.user}
               onChange={this.onChange}
