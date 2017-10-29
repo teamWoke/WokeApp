@@ -5,6 +5,12 @@
     width: 100vw;
     height: 100vh;
     text-align: center;
+    animation: fadePage 1s;
+}
+
+@keyframes fadePage {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 
 .WokeSmallText {
@@ -94,6 +100,7 @@ input {
     align-items: center;
     width: 100vw;
     flex: 2;
+    animation: fadePage 1.5s;
 }
 
 #SearchBar {
@@ -156,6 +163,7 @@ input {
     align-items: center;
     width: 100vw;
     flex: 2;
+    animation: fadePage 1s;
 }
 
 .DashboardText {
@@ -193,6 +201,7 @@ input {
     align-items: center;
     width: 100vw;
     flex: 2;
+    animation: fadePage 1s;
 }
 
 .NavBar {
