@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Redirect, Switch } from "react-router-dom";
+import { Route, Redirect, Switch, Router } from "react-router-dom";
 import Search from "./search";
 import Results from "./results";
 import Dashboard from "./dashboard";
@@ -17,7 +17,8 @@ class AuthenticationShell extends Component {
       user: false,
       url: "http://localhost:8080",
       searchTerm: "",
-      results: []
+      results: [],
+      loading: false
     };
     this.setUser = this.setUser.bind(this);
     this.logout = this.logout.bind(this);
@@ -25,7 +26,6 @@ class AuthenticationShell extends Component {
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.deleteTile = this.deleteTile.bind(this);
-    this.showSearchTerm = this.showSearchTerm.bind(this);
   }
 
   // once the component mounted, we want to initialize our user
@@ -98,6 +98,7 @@ class AuthenticationShell extends Component {
   onSubmit(event) {
     event.preventDefault();
     const { searchTerm } = this.state;
+    this.setState({ loading: true });
     axios
       .post("http://localhost:8080/news/", { search_term: searchTerm })
       .then(response => {
@@ -115,7 +116,7 @@ class AuthenticationShell extends Component {
     axios
       .get("http://localhost:8080/news/")
       .then(response => {
-        this.setState({ results: response.data.news }, () => {
+        this.setState({ results: response.data.news, loading: false }, () => {
         console.log("Received news data: ", this.state.results);
         this.props.history.push(`/woke/results`);
       })
@@ -127,13 +128,6 @@ class AuthenticationShell extends Component {
     // redirect to <Results/>
   }
 
-  viewTerms() {}
-
-  showSearchTerm(term, index) {
-    console.log("in showSearchTerm", term);
-    return <DashboardTile key={term.id.toString()} id={term.id} tileText={term.term} onClick={this.deleteTile}/>;
-  }
-
   deleteTile(event, id) {
     console.log("Inside deleteTile!");
     event.preventDefault();
@@ -141,7 +135,7 @@ class AuthenticationShell extends Component {
     axios.delete(`http://localhost:8080/news/${id}`)
     .then(response => {
       console.log('Deleting a tile', id);
-      this.showSearchTerm();
+      this.props.history.push(`/woke`);
     })
     .catch(err => {
       console.log("Error deleting tile: ", err);
@@ -190,6 +184,7 @@ class AuthenticationShell extends Component {
           render={props => (
             <Search
               {...props}
+              loading={this.state.loading}
               logout={this.logout}
               user={this.state.user}
               onChange={this.onChange}

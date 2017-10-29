@@ -5,6 +5,12 @@
     width: 100vw;
     height: 100vh;
     text-align: center;
+    animation: fadePage 1s;
+}
+
+@keyframes fadePage {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 
 .WokeSmallText {
@@ -94,6 +100,7 @@ input {
     align-items: center;
     width: 100vw;
     flex: 2;
+    animation: fadePage 1.5s;
 }
 
 #SearchBar {
@@ -109,6 +116,7 @@ input {
     font-size: 20px;
     color: #6391c1;
     padding: 10px;
+    text-decoration: none;
 }
 
 .CurrentResult {
@@ -155,6 +163,7 @@ input {
     align-items: center;
     width: 100vw;
     flex: 2;
+    animation: fadePage 1s;
 }
 
 .DashboardText {
@@ -165,14 +174,13 @@ input {
 .InactiveText {
     text-decoration: none;
     font-size: 20px;
-    font-weight: 300;
+    font-weight: 400;
     color: #000000;
     padding: 10px;
 }
 
 .InactiveText:hover {
     cursor: pointer;
-    text-transform: uppercase;
     opacity: .5;
 }
 
@@ -193,6 +201,7 @@ input {
     align-items: center;
     width: 100vw;
     flex: 2;
+    animation: fadePage 1s;
 }
 
 .NavBar {
@@ -278,13 +287,17 @@ input {
     width: 250px;
     margin-bottom: 3%;
     background-color: #6391c1;
+    transition: .5s;
 }
 
 .Tile:hover {
     background-color: #d25740;
+    border-radius: 50%;
     transition: 1s;
+    cursor: pointer;
+    transition: .8s;
     transform: rotateZ(360deg);
-    box-shadow: 0 24px 24px 0 rgba(0, 0, 0, 0.5), 0 0 24px 0 rgba(255, 255, 255, 0.5);
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.5), 0 0 10px 0 rgba(255, 255, 255, 0.5);
 }
 
 .TileContainer {
