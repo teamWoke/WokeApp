@@ -278,14 +278,17 @@ input {
     width: 250px;
     margin-bottom: 3%;
     background-color: #6391c1;
+    transition: .5s;
 }
 
 .Tile:hover {
     background-color: #d25740;
+    border-radius: 50%;
     transition: 1s;
     cursor: pointer;
+    transition: .8s;
     transform: rotateZ(360deg);
-    box-shadow: 0 24px 24px 0 rgba(0, 0, 0, 0.5), 0 0 24px 0 rgba(255, 255, 255, 0.5);
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.5), 0 0 10px 0 rgba(255, 255, 255, 0.5);
 }
 
 .TileContainer {
