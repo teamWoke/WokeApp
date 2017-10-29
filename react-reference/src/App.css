@@ -109,6 +109,7 @@ input {
     font-size: 20px;
     color: #6391c1;
     padding: 10px;
+    text-decoration: none;
 }
 
 .CurrentResult {
@@ -165,14 +166,13 @@ input {
 .InactiveText {
     text-decoration: none;
     font-size: 20px;
-    font-weight: 300;
+    font-weight: 400;
     color: #000000;
     padding: 10px;
 }
 
 .InactiveText:hover {
     cursor: pointer;
-    text-transform: uppercase;
     opacity: .5;
 }
 
@@ -283,6 +283,7 @@ input {
 .Tile:hover {
     background-color: #d25740;
     transition: 1s;
+    cursor: pointer;
     transform: rotateZ(360deg);
     box-shadow: 0 24px 24px 0 rgba(0, 0, 0, 0.5), 0 0 24px 0 rgba(255, 255, 255, 0.5);
 }

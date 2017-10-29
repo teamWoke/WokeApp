@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Redirect, Switch } from "react-router-dom";
+import { Route, Redirect, Switch, Router } from "react-router-dom";
 import Search from "./search";
 import Results from "./results";
 import Dashboard from "./dashboard";
@@ -25,7 +25,6 @@ class AuthenticationShell extends Component {
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.deleteTile = this.deleteTile.bind(this);
-    this.showSearchTerm = this.showSearchTerm.bind(this);
   }
 
   // once the component mounted, we want to initialize our user
@@ -127,13 +126,6 @@ class AuthenticationShell extends Component {
     // redirect to <Results/>
   }
 
-  viewTerms() {}
-
-  showSearchTerm(term, index) {
-    console.log("in showSearchTerm", term);
-    return <DashboardTile key={term.id.toString()} id={term.id} tileText={term.term} onClick={this.deleteTile}/>;
-  }
-
   deleteTile(event, id) {
     console.log("Inside deleteTile!");
     event.preventDefault();
@@ -141,7 +133,7 @@ class AuthenticationShell extends Component {
     axios.delete(`http://localhost:8080/news/${id}`)
     .then(response => {
       console.log('Deleting a tile', id);
-      this.showSearchTerm();
+      this.props.history.push(`/woke`);
     })
     .catch(err => {
       console.log("Error deleting tile: ", err);

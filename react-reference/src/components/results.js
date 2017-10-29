@@ -15,7 +15,7 @@ class Results extends Component {
 						<p className="WokeNavText">Woke</p>
 					</div>
 					<div className="NavBarRight">
-						<p className="CurrentLinkText">Search</p>
+						<Link to="/woke" className="CurrentLinkText">Search</Link>
 						<Link to="/woke/dashboard" className="InactiveText">Dashboard</Link>
 						<p className="InactiveText" onClick={this.props.logout}>Logout</p>
 					</div>
