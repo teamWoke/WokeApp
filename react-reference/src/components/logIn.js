@@ -55,7 +55,6 @@ class Login extends Component {
               type="email"
               onChange={e => this.changeInput(e, "email")}
             />
-            <br/><br/>
             <input
               value={this.state.inputs.password}
               id="password"
@@ -64,9 +63,7 @@ class Login extends Component {
               type="password"
               onChange={e => this.changeInput(e, "password")}
             />
-            <br/><br/>
             <button type="submit">Login</button>
-            <br/><br/>
             <button onClick={this.props.toggleMode}>Sign Up</button>
           </form>
         </div>

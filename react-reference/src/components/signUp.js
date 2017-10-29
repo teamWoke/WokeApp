@@ -58,7 +58,6 @@ class SignUp extends Component {
               type="text"
               onChange={e => this.changeInput(e, "name")}
             />
-            <br /><br />
             <input
               value={this.state.inputs.email}
               id="email"
@@ -67,7 +66,6 @@ class SignUp extends Component {
               type="email"
               onChange={e => this.changeInput(e, "email")}
             />
-            <br /><br />
             <input
               value={this.state.inputs.password}
               id="password"
@@ -76,7 +74,6 @@ class SignUp extends Component {
               type="password"
               onChange={e => this.changeInput(e, "password")}
             />
-            <br /><br />
             <input
               value={this.state.inputs.password_confirmation}
               id="password_confirmation"
@@ -85,9 +82,7 @@ class SignUp extends Component {
               type="password"
               onChange={e => this.changeInput(e, "password_confirmation")}
             />
-            <br /><br />
             <button type="submit">Sign Up</button>
-            <br /><br />
             <button onClick={this.props.toggleMode}>Log In</button>
           </form>
         </div>

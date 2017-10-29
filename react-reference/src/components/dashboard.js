@@ -69,7 +69,7 @@ class Dashboard extends Component {
 
 				<div className="DashboardContainer">
 					<div className="Username">
-						<p className="LogInText">Hey {this.props.name},</p>
+						<p className="DashboardText">Hey {this.props.name},</p>
 						<p className="WokeSearchText">Here are your woke words.</p>
 					</div>
 
