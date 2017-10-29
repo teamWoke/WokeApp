@@ -32,8 +32,11 @@ class Dashboard extends Component {
 	}
 
 	showSearchTerm(term, index) {
+		const onClick = event => {
+			this.delete(event, event.target.id)
+		}
 		console.log("in showSearchTerm", term);
-		return <DashboardTile key={term.id.toString()} id={term.id} tileText={term.term} onClick={this.deleteTile}/>;
+		return <DashboardTile key={term.id.toString()} id={term.id} tileText={term.term} onClick={onClick}/>;
 	}
 
 	// deleteTile(event) {
@@ -50,10 +53,10 @@ class Dashboard extends Component {
 	// 	})
 	// }
 delete(event, id) {
-		console.log("Inside deleteTile!");
+		console.log("Inside Dashboard deleteTile!");
 		event.preventDefault();
 		// const id = this.state.termsArray.id;
-		this.props.deleteTile;
+		this.props.delete(event, id);
 	}
 
 	render() {
