@@ -28,7 +28,7 @@ class Results extends Component {
 						<p className="CurrentSearchText">in the past 3 days</p>
 					</div>
 
-						<GraphResults eachResult={this.props.results}/>
+						<GraphResults remap={this.props.remap}/>
 				</div>
 			</div>
 		);

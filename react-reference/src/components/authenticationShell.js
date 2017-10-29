@@ -101,14 +101,14 @@ class AuthenticationShell extends Component {
     let remap = [{network: 'cnn'}, {network: 'fox'}, {network: 'bbc'}]
 
     resultsArray.forEach(element => {
-    let key = element.term.replace(' ', '');
+    let key = element.term;
     remap[0][key] = element.cnn;
     remap[1][key] = element.fox;
     remap[2][key] = element.bbc;
     })
     console.log("in remapData", remap);
-    this.setState({remapResults: remap}, ()=>{
-      console.log(this.state.remapResults)
+    this.setState({remapResults: remap}, () =>{
+      console.log("Remapped data: ", this.state.remapResults);
     })
   }
 
