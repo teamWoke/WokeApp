@@ -5,82 +5,62 @@ import "../App.css";
 class GraphResults extends Component {
     constructor(props) {
         super(props);
-        this.showTopics = this.showTopics.bind(this);
+        this.renderResults = this.renderResults.bind(this);
     }
-    showTopics(term) {
-        console.log("Inside.showTopics", term);
+    renderResults(remapDatum) {
 
-        const fillColors = ["6290c3", "#d5573b", "#aaaaaa"];
+        const data = [];
 
-        const data = [
-            {
-                funnelKey: fillColors[0],
-                stepName: `${term.term}`,
-                stepValue: `${term.cnn}`,
-                renderKey: 0,
+            Object.keys(remapDatum).forEach((key, index) => {
+            console.log("Term:", key, "Value:", remapDatum[key], "RenderKey:", index);
+            if (key !== "network") {
+            data.push({
+                funnelKey: "#6290c3",
+                stepName: key,
+                stepValue: remapDatum[key],
+                renderKey: index,
                 _orFR: 526.3157894736842,
-                _orFV: 800,
+                _orFV: 1000,
                 _orFX: 5,
                 _orFRZ: 526.3157894736842,
                 _orFRBase: -26.31578947368421,
                 _orFRBottom: -26.31578947368421,
                 _orFRMiddle: 236.84210526315786,
                 negative: false
-            },
-            {
-                funnelKey: fillColors[1],
-                stepName: `${term.term}`,
-                stepValue: `${term.bbc}`,
-                renderKey: 1,
-                _orFR: 473.6842105263158,
-                _orFV: 900,
-                _orFX: 80,
-                _orFRZ: 473.6842105263158,
-                _orFRBase: -26.31578947368421,
-                _orFRBottom: -26.31578947368421,
-                _orFRMiddle: 210.52631578947367,
-                negative: false
-            },
-            {
-                funnelKey: fillColors[2],
-                stepName: `${term.term}`,
-                stepValue: `${term.fox}`,
-                renderKey: 2,
-                _orFR: 263.1578947368421,
-                _orFV: 500,
-                _orFX: 155,
-                _orFRZ: 263.1578947368421,
-                _orFRBase: -26.31578947368421,
-                _orFRBottom: -26.31578947368421,
-                _orFRMiddle: 105.26315789473684,
-                negative: false
-            }
-        ];
+            })
 
-        return(
+        }
+    });
+
+        console.log(data);
+
+        return (
             <div key={Math.random()}>
-            <ORFrame
-                size={[170,300]}
-                data={data}
-                projection={"vertical"}
-                type={"bar"}
-                oLabel={true}
-                oAccessor={d => d.stepName}
-                rAccessor={"stepValue"}
-                style={d => {
-                    return { fill: d.funnelKey };
-                }}
-                hoverAnnotation={false}
-            />
+                <p className="NetworkText">{remapDatum.network}</p>
+                <ORFrame
+                    size={[300, 300]}
+                    data={data}
+                    projection={"horizontal"}
+                    type={"bar"}
+                    oLabel={true}
+                    oPadding={20}
+                    oAccessor={d => d.stepName}
+                    rAccessor={"stepValue"}
+                    style={d => {
+                        return { fill: d.funnelKey };
+                    }}
+                    hoverAnnotation={false}
+                    margin={{ left: 55, top: 0, bottom: 50, right: 0 }}
+                />
             </div>
-            );
+        );
     }
 
     render() {
-        const resultsDiv = this.props.eachResult.map(this.showTopics);
+        const eachGraph = this.props.remap.map(this.renderResults);
 
         return (
-            <div className="ResultsContainer">{resultsDiv}</div>
+            <div className="ResultsContainer">{eachGraph}</div>
         );
     }
 }
