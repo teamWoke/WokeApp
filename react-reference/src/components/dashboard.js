@@ -20,7 +20,7 @@ class Dashboard extends Component {
 
 	componentDidMount() {
 		axios
-			.get("http://localhost:8080/news/dashboard")
+			.get("http://localhost:8080/news/dashboard", {params: {auth_token: this.props.user.token}})
 			.then(response => {
 				this.setState({ termsArray: response.data.news }, () => {
 					console.log("Your terms: ", this.state.termsArray);
