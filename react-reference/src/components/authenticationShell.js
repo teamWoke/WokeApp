@@ -114,9 +114,10 @@ class AuthenticationShell extends Component {
   onSubmit(event) {
     event.preventDefault();
     const { searchTerm } = this.state;
+    console.log(this.state.user);
     this.setState({ loading: true });
     axios
-      .post("http://localhost:8080/news/", { search_term: searchTerm, auth_token: this.state.user.token })
+      .post("http://localhost:8080/news/", { search_term: searchTerm }, {params: {auth_token: this.state.user.token}})
       .then(response => {
         console.log("Added search term: ", response.data);
         this.newsSearch();
