@@ -116,7 +116,7 @@ class AuthenticationShell extends Component {
     const { searchTerm } = this.state;
     this.setState({ loading: true });
     axios
-      .post("http://localhost:8080/news/", { search_term: searchTerm })
+      .post("http://localhost:8080/news/", { search_term: searchTerm, auth_token: this.state.user.token })
       .then(response => {
         console.log("Added search term: ", response.data);
         this.newsSearch();
