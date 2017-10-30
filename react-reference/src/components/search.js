@@ -25,9 +25,9 @@ class Search extends Component {
 						)}
 					{this.props.loading === false && (
 					<div className="MiniContainer">
-					<p id="WokeSearchText">Search</p>
+					<p id="WokeSearchText">Let's get started.</p>
 					<form onSubmit={this.props.onSubmit}>
-					<input type="text" placeholder="Search a topic" id="SearchBar" onChange={this.props.onChange} />
+					<input type="text" placeholder="Enter a topic" id="SearchBar" onChange={this.props.onChange} />
 					<br />
 					<br />
 					<button>Search</button>

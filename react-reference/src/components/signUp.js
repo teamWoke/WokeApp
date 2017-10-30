@@ -43,8 +43,9 @@ class SignUp extends Component {
   render() {
     return (
       <div className="StartContainer">
-        <div className="StartContainerNav">
+        <div className="StartNav">
           <p className="WokeSmallText">Woke</p>
+          <p className="TaglineText">Socio-political awareness made easy</p>
         </div>
 
         <div className="StartContainerMini">

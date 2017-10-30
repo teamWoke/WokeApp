@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import FoxLog from './foxLog';
-import CnnLog from "./cnnLog";
-import BbcLog from './bbcLog';
 import GraphResults from './graphResults';
 import "../App.css";
 

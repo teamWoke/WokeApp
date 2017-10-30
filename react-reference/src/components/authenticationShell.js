@@ -93,7 +93,6 @@ class AuthenticationShell extends Component {
   onChange(event) {
     event.preventDefault();
     this.setState({ searchTerm: event.target.value });
-    console.log("The current input is ", this.state.searchTerm);
     //updates searchTerm with each keystroke
   }
 

@@ -8,17 +8,6 @@
     animation: fadePage 1s;
 }
 
-@keyframes fadePage {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-.WokeSmallText {
-    font-size: 45px;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
 .WokeNavText {
     font-size: 45px;
     font-weight: 700;
@@ -70,10 +59,16 @@ input {
     font-family: "Josefin Sans", sans-serif;
 }
 
+@keyframes fadePage {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
 /* Login & Sign Up Screens */
 
 .LogInText {
     font-size: 45px;
+    margin-bottom: 0;
 }
 
 .StartContainer {
@@ -83,14 +78,7 @@ input {
     align-items: center;
     width: 100vw;
     height: 100vh;
-}
-
-.StartContainerNav {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    width: 98vw;
-    flex: 0.3;
+    animation: fadePage 1.5s;
 }
 
 .StartContainerMini {
@@ -100,7 +88,19 @@ input {
     align-items: center;
     width: 100vw;
     flex: 2;
-    animation: fadePage 1.5s;
+}
+
+.TaglineText {
+    margin: 0;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.WokeSmallText {
+    font-size: 45px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0;
 }
 
 #SearchBar {
@@ -117,17 +117,6 @@ input {
     color: #6391c1;
     padding: 10px;
     text-decoration: none;
-}
-
-.CurrentResult {
-    background-color: #6391c1;
-    border-top: 1px solid #eef0f3;
-}
-
-.CurrentResultText {
-    color: #eef0f3;
-    font-weight: 300;
-    font-size: 20px;
 }
 
 .CurrentSearchHeader {
@@ -227,55 +216,18 @@ input {
     align-items: center;
 }
 
-.NewsSourceText {
-    font-size: 30px;
-    text-transform: uppercase;
-    font-weight: 300px;
+.NetworkText {
+    font-size: 35px;
     color: #4a4a4a;
-}
-
-.NewsSource, .CurrentResult, .PrevResult {
-    width: 245px;
-    height: 61px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.PrevResult {
-    background-color: #e29081;
-    border-top: 1px solid #eef0f3;
-}
-
-.ResultText {
-    color: #eef0f3;
-    font-weight: 300;
-    font-size: 20px;
-    text-transform: capitalize;
+    text-transform: uppercase;
 }
 
 .ResultsContainer {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    width: 80vw;
+    justify-content: space-around;
+    width: 100vw;
     flex: 1;
-}
-
-.ResultsLogContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 245px;
-    height: 305px;
-    border-radius: 5px;
-    background-color: #aaaaaa;
-}
-
-.ScrollResults {
-    height: 244px;
-    overflow-y: auto;
 }
 
 .Tile {
@@ -288,6 +240,7 @@ input {
     margin-bottom: 3%;
     background-color: #6391c1;
     transition: .5s;
+    animation: 1s slideTiles ease;
 }
 
 .Tile:hover {
@@ -332,36 +285,31 @@ input {
 
 #WokeSearchText {
     margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 100px;
+    margin-bottom: 20px;
+    font-size: 50px;
     font-weight: 700;
-    text-transform: uppercase;
 }
 
+@keyframes slideTiles {
+    0% {
+        transform: translateY(150%) scaleX(0.5);
+    }
+    50%{
+        transform: translateY(-20%);
+    }
+    75%{
+        transform: translateY(4%);
+    }  
+    100% {
+        transform: translateY(0%) scaleX(1);
+    }     
+}
 
 /* Semiotic */
-
-.annotation-layer {
-    display: none;
-}
-
-.frame-elements, .frame-canvas {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.visualization-layer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 text {
     text-transform: capitalize;
 }
-
-@media only screen and (min-width: 768px) {}
 
 @media only screen and (max-width: 500px) {
     /* Login & Sign Up Screens */
@@ -413,10 +361,6 @@ text {
     }
 
     .ResultsContainer {
-    }
-
-    .ResultsLogContainer {
-        margin-bottom: 10px;
     }
 
     .Tile {
