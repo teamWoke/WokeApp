@@ -90,7 +90,7 @@ delete(event, id, index) {
 				<div className="DashboardContainer">
 					<div className="Username">
 						<p className="DashboardText">Hey {this.props.name},</p>
-						<p className="WokeSearchText">Here are your woke words.</p>
+						<p className="DashboardMiniText">Here are your Woke words.</p>
 					</div>
 
 					<div className="TileContainer">{tilesSearchTerms}</div>
