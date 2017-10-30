@@ -155,8 +155,15 @@ input {
     animation: fadePage 1s;
 }
 
+.DashboardMiniText {
+    margin: 0;
+    font-weight: 300;
+    font-size: 24px;
+    text-transform: lowercase;
+}
+
 .DashboardText {
-    font-size: 45px;
+    font-size: 40px;
     margin: 0;
 }
 
