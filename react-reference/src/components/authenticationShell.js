@@ -147,13 +147,12 @@ class AuthenticationShell extends Component {
   }
 
   deleteTile(event, id) {
-    console.log("Inside deleteTile!");
     event.preventDefault();
     // const id = event.target.id;
     axios.delete(`http://localhost:8080/news/${id}`)
     .then(response => {
-      console.log('Deleting a tile', id);
-      this.props.history.push(`/woke`);
+      console.log(this.props);
+      // this.props.history.replace(`/woke/dashboard`);
     })
     .catch(err => {
       console.log("Error deleting tile: ", err);

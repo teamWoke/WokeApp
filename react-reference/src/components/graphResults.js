@@ -42,22 +42,21 @@ class GraphResults extends Component {
         console.log(data);
 
         return (
-            <div key={Math.random()}>
+            <div key={Math.random()} className="GraphDiv">
                 <p className="NetworkText">{remapDatum.network}</p>
                 <ORFrame
                     size={[300, 300]}
                     data={data}
-                    projection={"horizontal"}
+                    projection={"vertical"}
                     type={"bar"}
                     oLabel={true}
-                    oPadding={20}
+                    oPadding={10}
                     oAccessor={d => d.stepName}
                     rAccessor={"stepValue"}
                     style={d => {
                         return { fill: d.funnelKey };
                     }}
                     hoverAnnotation={false}
-                    margin={{ left: 55, top: 0, bottom: 50, right: 0 }}
                 />
             </div>
         );

@@ -13,12 +13,10 @@ class DashboardTile extends Component {
 
 	mouseEnter(){
 		this.setState({ mouseOnTile: true });
-		console.log("Hovering over tile!");
 	}
 
 	mouseExit(){
 		this.setState({ mouseOnTile: false });
-		console.log("Leaving tile");
 	}
 
 	render() {
