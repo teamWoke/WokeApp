@@ -224,6 +224,7 @@ input {
 
 .ResultsContainer {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
     width: 100vw;
@@ -307,7 +308,13 @@ input {
 
 /* Semiotic */
 
+.GraphDiv {
+    width: 325px;
+}
+
 text {
+    font-size: 16px;
+    font-weight: 300;
     text-transform: capitalize;
 }
 
@@ -360,9 +367,6 @@ text {
         width: 100vw;
     }
 
-    .ResultsContainer {
-    }
-
     .Tile {
         display: flex;
         justify-content: center;
@@ -387,5 +391,9 @@ text {
     .TileText {
         color: #eef0f3;
         font-size: 20px;
+    }
+
+    .frame {
+        position: relative !important;
     }
 }

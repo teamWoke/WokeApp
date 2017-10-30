@@ -33,7 +33,7 @@ class Dashboard extends Component {
 
 	showSearchTerm(term, index) {
 		const onClick = event => {
-			this.delete(event, event.target.id)
+			this.delete(event, event.target.id, index)
 		}
 		console.log("in showSearchTerm", term);
 		return <DashboardTile key={term.id.toString()} id={term.id} tileText={term.term} onClick={onClick}/>;
@@ -52,11 +52,16 @@ class Dashboard extends Component {
 	// 		console.log("Error deleting tile: ", err);
 	// 	})
 	// }
-delete(event, id) {
+delete(event, id, index) {
 		console.log("Inside Dashboard deleteTile!");
 		event.preventDefault();
 		// const id = this.state.termsArray.id;
 		this.props.delete(event, id);
+		this.setState(prev=>{
+			prev.termsArray.splice(index, 1);
+			console.log(prev);
+			return prev;
+		});
 	}
 
 	render() {
@@ -88,7 +93,7 @@ delete(event, id) {
 						<p className="WokeSearchText">Here are your woke words.</p>
 					</div>
 
-					<div className="TileContainer" onClick={onClick}>{tilesSearchTerms}</div>
+					<div className="TileContainer">{tilesSearchTerms}</div>
 				</div>
 			</div>
 		);
