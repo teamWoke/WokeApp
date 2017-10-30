@@ -118,10 +118,12 @@ class AuthenticationShell extends Component {
     this.setState({ loading: true });
     axios
       .post("http://localhost:8080/news/", { search_term: searchTerm }, {params: {auth_token: this.state.user.token}})
-      .then(response => {
-        console.log("Added search term: ", response.data);
-        this.newsSearch();
-      })
+      .then(response => {this.newsSearch()})
+      //   this.setState({loading: false}, ()=>{
+      //     this.newsSearch();
+      //   console.log("Added search term: ", response.data);
+      // })
+      
       .catch(err => {
         console.log("Error adding search term: ", err);
       });
@@ -130,8 +132,8 @@ class AuthenticationShell extends Component {
   }
 
   newsSearch() {
-    axios
-      .get("http://localhost:8080/news/")
+    console.log('in newsSearch');
+    axios("http://localhost:8080/news/search", {params: {auth_token: this.state.user.token}})
       .then(response => {
         this.setState({ results: response.data.news, loading: false }, () => {
         console.log("Received news data: ", this.state.results);
