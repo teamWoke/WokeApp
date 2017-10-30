@@ -240,6 +240,7 @@ input {
     margin-bottom: 3%;
     background-color: #6391c1;
     transition: .5s;
+    animation: 1s slideTiles ease;
 }
 
 .Tile:hover {
@@ -289,6 +290,20 @@ input {
     font-weight: 700;
 }
 
+@keyframes slideTiles {
+    0% {
+        transform: translateY(150%) scaleX(0.5);
+    }
+    50%{
+        transform: translateY(-20%);
+    }
+    75%{
+        transform: translateY(4%);
+    }  
+    100% {
+        transform: translateY(0%) scaleX(1);
+    }     
+}
 
 /* Semiotic */
 
